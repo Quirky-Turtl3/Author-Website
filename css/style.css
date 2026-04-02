@@ -206,6 +206,7 @@ main { flex: 1; padding-top: 5rem; position: relative; z-index: 10; }
 .badge-querying  { color: var(--accent); border: 1px solid rgba(124,158,184,0.35); }
 .badge-onhold    { color: var(--dim); border: 1px solid rgba(107,110,128,0.3); }
 .badge-upcoming  { color: #555768; border: 1px solid rgba(85,87,104,0.3); }
+.badge-na { color: #3d3f50; border: 1px solid rgba(61,63,80,0.3); font-style: italic; }
 .badge-na        { color: #3d3f50; border: 1px solid rgba(61,63,80,0.3); font-style: italic; }
 
 /* ── FADE-IN ── */
