@@ -22,7 +22,7 @@
 
     /* Atmospheric glow */
     .hero-glow {
-      position: absolute;
+      position: fixed;
       width: 600px;
       height: 600px;
       border-radius: 50%;
@@ -35,7 +35,7 @@
 
     /* Thin border frame */
     .hero-frame {
-      position: absolute;
+      position: fixed;
       top: 5.5rem;
       left: 3rem;
       right: 3rem;
@@ -45,7 +45,7 @@
     }
     .hero-frame::before, .hero-frame::after {
       content: '';
-      position: absolute;
+      position: fixed;
       width: 8px;
       height: 8px;
       border-color: rgba(124,158,184,0.3);
