@@ -204,9 +204,9 @@ main { flex: 1; padding-top: 5rem; position: relative; z-index: 10; }
 .badge-drafting  { color: #c8b87a; border: 1px solid rgba(200,184,122,0.3); }
 .badge-revising  { color: #b0a0cc; border: 1px solid rgba(176,160,204,0.3); }
 .badge-querying  { color: var(--accent); border: 1px solid rgba(124,158,184,0.35); }
-.badge-onhold    { color: var(--dim); border: 1px solid rgba(107,110,128,0.3); }
-.badge-upcoming  { color: #555768; border: 1px solid rgba(85,87,104,0.3); }
-.badge-na { color: #6b6e80; border: 1px solid rgba(107,110,128,0.35); font-style: italic; }
+.badge-onhold    { color: #c0844a; border: 1px solid rgba(192,132,74,0.35); }
+.badge-upcoming  { color: #8a8da0; border: 1px solid rgba(138,141,160,0.4); }
+.badge-na        { color: #555768; border: 1px solid rgba(85,87,104,0.3); font-style: italic; }
 
 /* ── FADE-IN ── */
 @keyframes fadeUp {
