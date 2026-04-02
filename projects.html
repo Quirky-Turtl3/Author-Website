@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Radu Paun</title>
+  <meta name="description" content="Radu Paun's writing projects — progress and querying status.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .projects-wrap {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 5rem 3rem 6rem;
+    }
+
+    .page-header {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid rgba(124,158,184,0.1);
+      margin-bottom: 4rem;
+    }
+    .page-header .section-label { margin-bottom: 1rem; }
+    .page-header h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      color: var(--silver);
+      line-height: 1.1;
+    }
+    .page-header .sub {
+      font-family: var(--ff-body);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--dim);
+      margin-top: 0.75rem;
+      max-width: 42rem;
+    }
+
+    /* ── TABLE ── */
+    .table-scroll { overflow-x: auto; }
+
+    .projects-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    .projects-table thead tr {
+      border-bottom: 1px solid rgba(124,158,184,0.2);
+    }
+
+    .projects-table th {
+      font-family: var(--ff-ui);
+      font-size: 0.58rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.65;
+      padding: 0 1.5rem 1rem 0;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .projects-table td {
+      padding: 1.4rem 1.5rem 1.4rem 0;
+      border-bottom: 1px solid rgba(124,158,184,0.06);
+      vertical-align: top;
+      color: var(--mist);
+    }
+
+    .projects-table tbody tr {
+      transition: background 0.2s;
+    }
+    .projects-table tbody tr:hover {
+      background: rgba(124,158,184,0.03);
+    }
+
+    .project-codename {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--silver);
+      white-space: nowrap;
+    }
+
+    .project-series {
+      font-family: var(--ff-body);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--dim);
+      margin-top: 0.2rem;
+    }
+
+    .project-logline {
+      font-family: var(--ff-body);
+      font-size: 0.95rem;
+      color: var(--mist);
+      opacity: 0.75;
+      line-height: 1.6;
+      max-width: 26rem;
+    }
+
+    .project-comment {
+      font-family: var(--ff-body);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--dim);
+      max-width: 16rem;
+      line-height: 1.5;
+    }
+
+    /* Genre tag */
+    .genre-tag {
+      display: inline-block;
+      font-family: var(--ff-ui);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid rgba(107,110,128,0.25);
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+    .genre-tag.fantasy { color: #a87c9a; border-color: rgba(168,124,154,0.3); }
+    .genre-tag.scifi   { color: var(--accent); border-color: rgba(124,158,184,0.3); }
+
+    /* ── LEGEND ── */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(124,158,184,0.08);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--ff-ui);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    /* ── NOTE ── */
+    .projects-note {
+      margin-top: 4rem;
+      padding: 1.5rem 1.75rem;
+      border: 1px solid rgba(124,158,184,0.12);
+      background: rgba(124,158,184,0.03);
+    }
+    .projects-note p {
+      font-family: var(--ff-body);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--dim);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .projects-wrap { padding: 3rem 1.5rem 4rem; }
+      .projects-table th,
+      .projects-table td { padding-right: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+
+<div class="page-wrap">
+  <nav>
+    <a class="nav-logo" href="index.html">Radu Paun</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="for-agents.html">For Agents</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="projects-wrap">
+
+      <header class="page-header fade-up delay-1">
+        <span class="section-label">Works in progress &amp; completed</span>
+        <h1>Projects</h1>
+        <p class="sub">A live overview of my writing projects — where each one stands, and where it's going.</p>
+      </header>
+
+      <div class="table-scroll fade-up delay-2">
+        <table class="projects-table">
+          <thead>
+            <tr>
+              <th>Codename</th>
+              <th>Genre</th>
+              <th>Series</th>
+              <th>Logline</th>
+              <th>Writing</th>
+              <th>Querying</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- ── EXAMPLE ROWS — replace with your real projects ── -->
+            <tr>
+              <td>
+                <div class="project-codename">Project [Name]</div>
+              </td>
+              <td><span class="genre-tag fantasy">Fantasy</span></td>
+              <td><span class="project-series">Standalone</span></td>
+              <td><p class="project-logline">[A one- or two-sentence description of the book goes here.]</p></td>
+              <td><span class="badge badge-complete">Complete</span></td>
+              <td><span class="badge badge-querying">Active</span></td>
+              <td><p class="project-comment">R&amp;R from two agents</p></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="project-codename">Project [Name]</div>
+              </td>
+              <td><span class="genre-tag fantasy">Fantasy</span></td>
+              <td><span class="project-series">[Series Name] #2</span></td>
+              <td><p class="project-logline">[Logline goes here.]</p></td>
+              <td><span class="badge badge-drafting">Drafting</span></td>
+              <td><span class="badge badge-onhold">On hold</span></td>
+              <td><p class="project-comment">~40k words</p></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="project-codename">Project [Name]</div>
+              </td>
+              <td><span class="genre-tag scifi">Sci-Fi</span></td>
+              <td><span class="project-series">Standalone</span></td>
+              <td><p class="project-logline">[Logline goes here.]</p></td>
+              <td><span class="badge badge-revising">Revising</span></td>
+              <td><span class="badge badge-upcoming">Not yet</span></td>
+              <td><p class="project-comment">3rd draft</p></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- LEGEND -->
+      <div class="legend fade-up delay-3">
+        <div class="legend-item"><span class="badge badge-complete">Complete</span> Manuscript finished</div>
+        <div class="legend-item"><span class="badge badge-drafting">Drafting</span> First draft in progress</div>
+        <div class="legend-item"><span class="badge badge-revising">Revising</span> In revision</div>
+        <div class="legend-item"><span class="badge badge-querying">Querying</span> Actively querying agents</div>
+        <div class="legend-item"><span class="badge badge-onhold">On hold</span> Paused</div>
+        <div class="legend-item"><span class="badge badge-upcoming">Not yet</span> Not querying yet</div>
+      </div>
+
+      <div class="projects-note fade-up delay-4">
+        <p>
+          This table is updated as projects move forward. Codenames are used in place of working titles while manuscripts are on submission. If you're an agent interested in any of these projects, please visit the <a href="for-agents.html" style="color:var(--accent);text-decoration:none;">For Agents</a> page.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Radu Paun</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bluesky <span style="font-size:0.55rem;opacity:0.5">(soon)</span></a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const canvas = document.getElementById('stars-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function initStars() {
+    stars = [];
+    const count = Math.floor((canvas.width * canvas.height) / 4000);
+    for (let i = 0; i < count; i++) {
+      stars.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+        r: Math.random()*1.1+0.1, o: Math.random()*0.6+0.1,
+        speed: Math.random()*0.003+0.001, phase: Math.random()*Math.PI*2 });
+    }
+  }
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const o = s.o * (0.6 + 0.4 * Math.sin(t * s.speed + s.phase));
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(200,210,230,${o})`; ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+  resize(); initStars(); requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { resize(); initStars(); });
+</script>
+</body>
+</html>

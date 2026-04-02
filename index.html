@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radu Paun — Author</title>
+  <meta name="description" content="Radu Paun — writer of fantasy and science fiction.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Atmospheric glow */
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,158,184,0.07) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    /* Thin border frame */
+    .hero-frame {
+      position: absolute;
+      top: 5.5rem;
+      left: 3rem;
+      right: 3rem;
+      bottom: 3rem;
+      border: 1px solid rgba(124,158,184,0.07);
+      pointer-events: none;
+    }
+    .hero-frame::before, .hero-frame::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-color: rgba(124,158,184,0.3);
+      border-style: solid;
+    }
+    .hero-frame::before {
+      top: -1px; left: -1px;
+      border-width: 1px 0 0 1px;
+    }
+    .hero-frame::after {
+      bottom: -1px; right: -1px;
+      border-width: 0 1px 1px 0;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--ff-ui);
+      font-size: 0.62rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.7;
+      margin-bottom: 2rem;
+    }
+
+    .hero-name {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: var(--silver);
+    }
+
+    .hero-subtitle {
+      font-family: var(--ff-body);
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-style: italic;
+      color: var(--dim);
+      letter-spacing: 0.03em;
+      margin: 1.8rem auto 0;
+      max-width: 36rem;
+      line-height: 1.6;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin: 2.5rem auto;
+    }
+    .hero-divider span {
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.3;
+    }
+    .hero-divider em {
+      font-family: var(--ff-display);
+      font-size: 0.85rem;
+      color: var(--accent);
+      opacity: 0.4;
+      font-style: normal;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ── INFO STRIP ── */
+    .info-strip {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid rgba(124,158,184,0.1);
+      border-bottom: 1px solid rgba(124,158,184,0.1);
+      background: rgba(19,20,26,0.6);
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      align-items: center;
+    }
+
+    .info-item {
+      padding: 2.5rem 3rem;
+      text-align: center;
+    }
+    .info-item-label {
+      font-family: var(--ff-ui);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.6;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .info-item-value {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--silver);
+    }
+    .info-sep {
+      width: 1px;
+      height: 2.5rem;
+      background: rgba(124,158,184,0.15);
+    }
+
+    /* ── INTRO SECTION ── */
+    .intro-section {
+      position: relative;
+      z-index: 10;
+      max-width: 52rem;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .intro-left {
+      padding-top: 0.5rem;
+    }
+
+    .intro-left .section-label {
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-nav-links {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .intro-nav-links li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--ff-ui);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(124,158,184,0.08);
+      transition: color 0.2s;
+    }
+    .intro-nav-links li a:hover { color: var(--accent); }
+    .intro-nav-links li a span { opacity: 0.4; font-size: 0.8rem; }
+
+    .intro-right p {
+      font-size: 1.1rem;
+      color: var(--mist);
+      line-height: 1.85;
+      opacity: 0.85;
+    }
+    .intro-right p + p { margin-top: 1.25rem; }
+
+    .intro-right .btn { margin-top: 2rem; }
+
+    @media (max-width: 768px) {
+      .hero-frame { display: none; }
+      .info-strip { grid-template-columns: 1fr; }
+      .info-sep { width: 80%; height: 1px; margin: 0 auto; }
+      .intro-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+
+<div class="page-wrap">
+  <nav>
+    <a class="nav-logo" href="index.html">Radu Paun</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="for-agents.html">For Agents</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-frame"></div>
+
+      <p class="hero-eyebrow fade-up delay-1">Adult fantasy &amp; science fiction</p>
+
+      <h1 class="hero-name fade-up delay-2">Radu Paun</h1>
+
+      <p class="hero-subtitle fade-up delay-3">
+        Writing worlds at the edge of the known — where myth meets the strange logic of the universe.
+      </p>
+
+      <div class="hero-divider fade-up delay-4">
+        <span></span>
+        <em>&#10022;</em>
+        <span></span>
+      </div>
+
+      <div class="hero-ctas fade-up delay-5">
+        <a href="for-agents.html" class="btn">For agents</a>
+        <a href="projects.html" class="btn btn-warm">View projects</a>
+      </div>
+    </section>
+
+    <!-- INFO STRIP -->
+    <div class="info-strip">
+      <div class="info-item">
+        <span class="info-item-label">Genres</span>
+        <span class="info-item-value">Fantasy &amp; Sci-Fi</span>
+      </div>
+      <div class="info-sep"></div>
+      <div class="info-item">
+        <span class="info-item-label">Audience</span>
+        <span class="info-item-value">Adult Fiction</span>
+      </div>
+      <div class="info-sep"></div>
+      <div class="info-item">
+        <span class="info-item-label">Status</span>
+        <span class="info-item-value">Querying</span>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <section class="intro-section">
+      <div class="intro-left fade-up delay-1">
+        <span class="section-label">Navigate</span>
+        <ul class="intro-nav-links">
+          <li><a href="for-agents.html">For agents <span>→</span></a></li>
+          <li><a href="projects.html">Projects &amp; progress <span>→</span></a></li>
+          <li><a href="about.html">About &amp; influences <span>→</span></a></li>
+        </ul>
+      </div>
+
+      <div class="intro-right fade-up delay-2">
+        <p>
+          I write adult fantasy with occasional forays into science fiction — stories that take world-building seriously and don't shy away from complexity. My work tends toward the atmospheric and the morally intricate: characters who are neither heroes nor villains, in worlds that follow their own strange logic.
+        </p>
+        <p>
+          I'm currently querying my first novel and working on several projects at various stages. This site is a place for agents, readers, and fellow writers to find out more about my work and follow along with its progress.
+        </p>
+        <a href="for-agents.html" class="btn">For agents →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Radu Paun</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" title="Coming soon">Bluesky <span style="font-size:0.55rem;opacity:0.5">(soon)</span></a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Starfield
+  const canvas = document.getElementById('stars-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function initStars() {
+    stars = [];
+    const count = Math.floor((canvas.width * canvas.height) / 4000);
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.1 + 0.1,
+        o: Math.random() * 0.6 + 0.1,
+        speed: Math.random() * 0.003 + 0.001,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const o = s.o * (0.6 + 0.4 * Math.sin(t * s.speed + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200, 210, 230, ${o})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+
+  resize();
+  initStars();
+  requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { resize(); initStars(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Radu Paun</title>
+  <meta name="description" content="About Radu Paun — writer, reader, influences.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .about-wrap {
+      max-width: 54rem;
+      margin: 0 auto;
+      padding: 5rem 3rem 6rem;
+    }
+
+    .page-header {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid rgba(124,158,184,0.1);
+      margin-bottom: 4rem;
+    }
+    .page-header .section-label { margin-bottom: 1rem; }
+    .page-header h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      color: var(--silver);
+      line-height: 1.1;
+    }
+
+    /* ── BIO ── */
+    .bio-section { margin-bottom: 4rem; }
+
+    .bio-section p {
+      font-family: var(--ff-body);
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: var(--mist);
+      opacity: 0.88;
+    }
+    .bio-section p + p { margin-top: 1.25rem; }
+
+    /* Pull quote style */
+    .bio-pull {
+      border-left: 1px solid rgba(124,158,184,0.3);
+      margin: 2.5rem 0;
+      padding: 0.5rem 0 0.5rem 2rem;
+    }
+    .bio-pull p {
+      font-family: var(--ff-body);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--silver);
+      opacity: 0.7;
+      line-height: 1.65;
+    }
+
+    /* ── INFLUENCES ── */
+    .influences-section { margin-bottom: 4rem; }
+
+    .influences-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(124,158,184,0.08);
+      border: 1px solid rgba(124,158,184,0.08);
+      margin-top: 2rem;
+    }
+
+    .influence-item {
+      background: var(--void);
+      padding: 1.5rem;
+      transition: background 0.2s;
+    }
+    .influence-item:hover { background: rgba(124,158,184,0.03); }
+
+    .influence-author {
+      font-family: var(--ff-display);
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--silver);
+      margin-bottom: 0.3rem;
+    }
+
+    .influence-note {
+      font-family: var(--ff-body);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--dim);
+      line-height: 1.55;
+    }
+
+    /* ── READING INTERESTS ── */
+    .reading-section { margin-bottom: 4rem; }
+
+    .reading-section p {
+      font-family: var(--ff-body);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--mist);
+      opacity: 0.82;
+    }
+    .reading-section p + p { margin-top: 1rem; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.75rem;
+    }
+    .tag {
+      font-family: var(--ff-ui);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dim);
+      border: 1px solid rgba(107,110,128,0.2);
+      padding: 5px 14px;
+    }
+    .tag.accent {
+      color: var(--accent);
+      border-color: rgba(124,158,184,0.25);
+    }
+
+    /* Short bio box (for agents/press to copy) */
+    .short-bio-box {
+      border: 1px solid rgba(124,158,184,0.15);
+      background: rgba(19,20,26,0.6);
+      padding: 1.75rem 2rem;
+      margin-top: 3rem;
+    }
+    .short-bio-box .sidebar-card-label {
+      font-family: var(--ff-ui);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.65;
+      display: block;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(124,158,184,0.1);
+    }
+    .short-bio-box p {
+      font-family: var(--ff-body);
+      font-size: 0.95rem;
+      color: var(--mist);
+      opacity: 0.75;
+      line-height: 1.75;
+    }
+
+    @media (max-width: 768px) {
+      .about-wrap { padding: 3rem 1.5rem 4rem; }
+      .influences-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+
+<div class="page-wrap">
+  <nav>
+    <a class="nav-logo" href="index.html">Radu Paun</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="for-agents.html">For Agents</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="about-wrap">
+
+      <header class="page-header fade-up delay-1">
+        <span class="section-label">The writer</span>
+        <h1>About</h1>
+      </header>
+
+      <!-- BIO -->
+      <section class="bio-section fade-up delay-2">
+        <div class="ruled-title"><h2>Biography</h2></div>
+
+        <p>
+          [Your longer bio goes here. This is the place to talk about yourself as a writer — where you're from, how you came to writing, what draws you to fantasy and science fiction. Be as personal or as professional as feels right. A few paragraphs is ideal.]
+        </p>
+
+        <div class="bio-pull">
+          <p>[A sentence or two that captures your voice or your relationship with storytelling — something that feels true and specific to you.]</p>
+        </div>
+
+        <p>
+          [Continue the bio here. You might talk about your writing practice, what themes recur in your work, or what you hope readers take from your fiction. You could also mention anything relevant to your background — other creative work, relevant experience, places you've lived.]
+        </p>
+
+        <!-- Short bio box for agents/press -->
+        <div class="short-bio-box">
+          <span class="sidebar-card-label">Short bio — for press &amp; queries</span>
+          <p>
+            [A concise, third-person bio of roughly 80–100 words. This is the version to paste into query letters and press materials. Example structure: "Radu Paun is a writer of adult fantasy and science fiction. His work focuses on [themes]. He is currently working on [brief description] and lives in [location]."]
+          </p>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- READING INTERESTS -->
+      <section class="reading-section fade-up delay-3">
+        <div class="ruled-title"><h2>Reading interests</h2></div>
+
+        <p>
+          [Talk about what you read and love — this is a great place to show agents you know your genre and your field. What are you drawn to as a reader? What kind of fantasy, what kind of science fiction? What do you look for in a book?]
+        </p>
+        <p>
+          [You might mention the books that shaped you, the authors you return to, or what you've been reading lately. This doesn't have to be a list — let it flow as naturally as the rest of the page.]
+        </p>
+
+        <div class="tags">
+          <span class="tag accent">Secondary-world fantasy</span>
+          <span class="tag accent">Hard science fiction</span>
+          <span class="tag accent">Mythic fiction</span>
+          <span class="tag">Literary fiction</span>
+          <span class="tag">Weird fiction</span>
+          <span class="tag">Speculative short stories</span>
+          <span class="tag">[Your tag]</span>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- INFLUENCES -->
+      <section class="influences-section fade-up delay-4">
+        <div class="ruled-title"><h2>Influences</h2></div>
+
+        <p style="font-family:var(--ff-body);font-size:1.05rem;line-height:1.85;color:var(--mist);opacity:0.82;">
+          Some of the writers whose work has shaped how I think about fiction — and about what fantasy and science fiction can do.
+        </p>
+
+        <div class="influences-grid">
+          <div class="influence-item">
+            <p class="influence-author">[Author Name]</p>
+            <p class="influence-note">[A line or two on why this writer matters to you — what they do that you admire.]</p>
+          </div>
+          <div class="influence-item">
+            <p class="influence-author">[Author Name]</p>
+            <p class="influence-note">[Your note on their influence.]</p>
+          </div>
+          <div class="influence-item">
+            <p class="influence-author">[Author Name]</p>
+            <p class="influence-note">[Your note on their influence.]</p>
+          </div>
+          <div class="influence-item">
+            <p class="influence-author">[Author Name]</p>
+            <p class="influence-note">[Your note on their influence.]</p>
+          </div>
+          <div class="influence-item">
+            <p class="influence-author">[Author Name]</p>
+            <p class="influence-note">[Your note on their influence.]</p>
+          </div>
+          <div class="influence-item">
+            <p class="influence-author">[Author Name]</p>
+            <p class="influence-note">[Your note on their influence.]</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Radu Paun</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bluesky <span style="font-size:0.55rem;opacity:0.5">(soon)</span></a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const canvas = document.getElementById('stars-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function initStars() {
+    stars = [];
+    const count = Math.floor((canvas.width * canvas.height) / 4000);
+    for (let i = 0; i < count; i++) {
+      stars.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+        r: Math.random()*1.1+0.1, o: Math.random()*0.6+0.1,
+        speed: Math.random()*0.003+0.001, phase: Math.random()*Math.PI*2 });
+    }
+  }
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const o = s.o * (0.6 + 0.4 * Math.sin(t * s.speed + s.phase));
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(200,210,230,${o})`; ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+  resize(); initStars(); requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { resize(); initStars(); });
+</script>
+</body>
+</html>
