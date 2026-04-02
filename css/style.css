@@ -3,9 +3,9 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --void:       #0d0e12;
-  --deep:       #13141a;
-  --surface:    #1a1b24;
+  --void:       #12141c;
+  --deep:       #181a24;
+  --surface:    #1e2030;
   --rim:        #24263300;
   --mist:       #c8cad8;
   --silver:     #e8eaf2;
@@ -35,7 +35,7 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.9;
 }
 
 /* ── NAV ── */
@@ -111,7 +111,7 @@ footer p {
 .footer-social a:hover { color: var(--accent); }
 
 /* ── LAYOUT ── */
-.page-wrap { display: flex; flex-direction: column; min-height: 100vh; }
+.page-wrap { display: flex; flex-direction: column; min-height: 100vh; position: relative; overflow: hidden; }
 main { flex: 1; padding-top: 5rem; position: relative; z-index: 10; }
 
 /* ── BUTTONS ── */
