@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Radu Paun</title>
   <meta name="description" content="About Radu Paun — writer, reader, influences.">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/Author-Website/css/style.css">
   <style>
     .about-wrap {
       max-width: 54rem;
@@ -157,9 +157,8 @@
   </style>
 </head>
 <body>
-<canvas id="stars-canvas"></canvas>
-
 <div class="page-wrap">
+<canvas id="stars-canvas"></canvas>
   <nav>
     <a class="nav-logo" href="index.html">Radu Paun</a>
     <ul class="nav-links">
@@ -281,7 +280,10 @@
   const canvas = document.getElementById('stars-canvas');
   const ctx = canvas.getContext('2d');
   let stars = [];
-  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function resize() {
+    canvas.width  = Math.max(document.documentElement.scrollWidth, window.innerWidth);
+    canvas.height = Math.max(document.documentElement.scrollHeight, window.innerHeight);
+  }
   function initStars() {
     stars = [];
     const count = Math.floor((canvas.width * canvas.height) / 4000);
