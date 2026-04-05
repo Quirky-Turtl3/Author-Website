@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Radu Paun</title>
+  <meta name="description" content="Contact Radu Paun — for literary agents and editors.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 2rem 3rem 6rem;
+    }
+
+    .page-header {
+      padding: 0.5rem 0 1.5rem;
+      border-bottom: 1px solid rgba(124,158,184,0.1);
+      margin-bottom: 2.5rem;
+    }
+    .page-header .section-label { margin-bottom: 1rem; }
+    .page-header h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      color: var(--silver);
+      line-height: 1.1;
+    }
+    .page-header .sub {
+      font-family: var(--ff-body);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--dim);
+      margin-top: 0.75rem;
+    }
+
+    /* ── FORM ── */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-label {
+      font-family: var(--ff-ui);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: rgba(124,158,184,0.04);
+      border: 1px solid rgba(124,158,184,0.18);
+      color: var(--silver);
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--dim);
+      font-style: italic;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: rgba(124,158,184,0.5);
+    }
+
+    .form-select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237c9eb8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-select option {
+      background: var(--deep);
+      color: var(--silver);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 8rem;
+      line-height: 1.7;
+    }
+
+    .form-note {
+      font-family: var(--ff-body);
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--dim);
+      line-height: 1.6;
+    }
+
+    .form-submit {
+      align-self: flex-start;
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      border: 1px solid rgba(100,180,100,0.3);
+      background: rgba(100,180,100,0.05);
+      padding: 1.5rem 1.75rem;
+      margin-top: 1rem;
+    }
+    .form-success p {
+      font-family: var(--ff-body);
+      font-style: italic;
+      color: #8fcf8f;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrap { padding: 2rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+<canvas id="stars-canvas"></canvas>
+  <nav>
+    <a class="nav-logo" href="index.html">Radu Paun</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="for-agents.html">For Agents</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="contact-wrap">
+
+      <header class="page-header fade-up delay-1">
+        <span class="section-label">For agents &amp; editors</span>
+        <h1>Get in touch</h1>
+        <p class="sub">For manuscript requests, query follow-ups, or editorial enquiries.</p>
+      </header>
+
+      <form
+        class="contact-form fade-up delay-2"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        id="contact-form"
+      >
+
+        <div class="form-group">
+          <label class="form-label" for="name">Your name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="agency">Agency or publisher</label>
+          <input class="form-input" type="text" id="agency" name="agency" placeholder="Smith Literary Agency">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email address</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="jane@smithliterary.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reason">Reason for contact</label>
+          <select class="form-select" id="reason" name="reason" required>
+            <option value="" disabled selected>Select a reason</option>
+            <option value="manuscript-request">Manuscript request</option>
+            <option value="query-followup">Query follow-up</option>
+            <option value="editorial-enquiry">Editorial enquiry</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Your message…" required></textarea>
+        </div>
+
+        <p class="form-note">I aim to respond within five working days. For general queries, please use the social links on the <a href="for-agents.html" style="color:var(--accent);text-decoration:none;">For Agents</a> page.</p>
+
+        <button type="submit" class="btn form-submit">Send message</button>
+
+      </form>
+
+      <div class="form-success" id="form-success">
+        <p>Thank you — your message has been sent. I'll be in touch within five working days.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Radu Paun</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#">Bluesky <span style="font-size:0.55rem;opacity:0.5">(soon)</span></a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Stars
+  const canvas = document.getElementById('stars-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [], raf;
+  function resize() {
+    canvas.width  = Math.max(document.documentElement.scrollWidth, window.innerWidth);
+    canvas.height = Math.max(document.documentElement.scrollHeight, window.innerHeight);
+  }
+  function initStars() {
+    stars = [];
+    const count = Math.floor((canvas.width * canvas.height) / 4000);
+    for (let i = 0; i < count; i++) {
+      stars.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+        r: Math.random()*1.1+0.1, o: Math.random()*0.6+0.1,
+        speed: Math.random()*0.003+0.001, phase: Math.random()*Math.PI*2 });
+    }
+  }
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const o = s.o * (0.6 + 0.4 * Math.sin(t * s.speed + s.phase));
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(200,210,230,${o})`; ctx.fill();
+    });
+    raf = requestAnimationFrame(drawStars);
+  }
+  resize(); initStars(); requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { cancelAnimationFrame(raf); resize(); initStars(); requestAnimationFrame(drawStars); });
+
+  // Form success handling
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
