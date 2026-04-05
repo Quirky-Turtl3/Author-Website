@@ -10,14 +10,13 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 38% 1fr;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 3rem 2rem 2rem;
+      padding: 5rem 4rem 3rem;
       position: relative;
       overflow: hidden;
+      gap: 4rem;
     }
 
     /* Atmospheric glow */
@@ -28,7 +27,7 @@
       border-radius: 50%;
       background: radial-gradient(circle, rgba(124,158,184,0.07) 0%, transparent 70%);
       top: 50%;
-      left: 50%;
+      left: 60%;
       transform: translate(-50%, -50%);
       pointer-events: none;
     }
@@ -60,6 +59,60 @@
       border-width: 0 1px 1px 0;
     }
 
+    /* ── PHOTO COLUMN ── */
+    .hero-photo {
+      position: relative;
+      height: 70vh;
+      max-height: 600px;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(20%);
+    }
+
+    .hero-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: rgba(124,158,184,0.04);
+      border: 1px solid rgba(124,158,184,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .hero-photo-placeholder span {
+      font-family: var(--ff-ui);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+      opacity: 0.5;
+    }
+    .hero-photo-placeholder svg { opacity: 0.15; }
+
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--void), transparent);
+      pointer-events: none;
+    }
+
+    /* ── TEXT COLUMN ── */
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
     .hero-eyebrow {
       font-family: var(--ff-ui);
       font-size: 0.62rem;
@@ -67,12 +120,12 @@
       text-transform: uppercase;
       color: var(--accent);
       opacity: 0.7;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-name {
       font-family: var(--ff-display);
-      font-size: clamp(3rem, 9vw, 7rem);
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
       font-weight: 300;
       letter-spacing: 0.08em;
       line-height: 1;
@@ -81,20 +134,20 @@
 
     .hero-subtitle {
       font-family: var(--ff-body);
-      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
       font-style: italic;
       color: var(--dim);
       letter-spacing: 0.03em;
-      margin: 1.8rem auto 0;
-      max-width: 36rem;
-      line-height: 1.6;
+      margin: 1.5rem 0 0;
+      max-width: 30rem;
+      line-height: 1.7;
     }
 
     .hero-divider {
       display: flex;
       align-items: center;
       gap: 1.2rem;
-      margin: 2.5rem auto;
+      margin: 2rem 0;
     }
     .hero-divider span {
       width: 36px;
@@ -114,7 +167,6 @@
       display: flex;
       gap: 1.25rem;
       flex-wrap: wrap;
-      justify-content: center;
     }
 
     /* ── INFO STRIP ── */
@@ -169,13 +221,8 @@
       align-items: start;
     }
 
-    .intro-left {
-      padding-top: 0.5rem;
-    }
-
-    .intro-left .section-label {
-      margin-bottom: 1.5rem;
-    }
+    .intro-left { padding-top: 0.5rem; }
+    .intro-left .section-label { margin-bottom: 1.5rem; }
 
     .intro-nav-links {
       list-style: none;
@@ -208,8 +255,19 @@
       opacity: 0.85;
     }
     .intro-right p + p { margin-top: 1.25rem; }
-
     .intro-right .btn { margin-top: 2rem; }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 6rem 2rem 3rem;
+        text-align: center;
+      }
+      .hero-photo { height: 50vw; max-height: 340px; }
+      .hero-text { align-items: center; }
+      .hero-subtitle { text-align: center; }
+      .hero-ctas { justify-content: center; }
+    }
 
     @media (max-width: 768px) {
       .hero-frame { display: none; }
@@ -238,23 +296,35 @@
       <div class="hero-glow"></div>
       <div class="hero-frame"></div>
 
-      <p class="hero-eyebrow fade-up delay-1">Adult fantasy &amp; science fiction</p>
-
-      <h1 class="hero-name fade-up delay-2">Radu Paun</h1>
-
-      <p class="hero-subtitle fade-up delay-3">
-        Writing worlds at the edge of the known — where myth meets the strange logic of the universe.
-      </p>
-
-      <div class="hero-divider fade-up delay-4">
-        <span></span>
-        <em>&#10022;</em>
-        <span></span>
+      <!-- Photo column -->
+      <div class="hero-photo fade-up delay-1">
+        <!-- Replace placeholder with: <img src="images/radu-paun.jpg" alt="Radu Paun"> -->
+        <div class="hero-photo-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="18" r="10" stroke="#7c9eb8" stroke-width="1.5"/>
+            <path d="M4 44c0-11.046 8.954-20 20-20s20 8.954 20 20" stroke="#7c9eb8" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Author photo</span>
+          <span>coming soon</span>
+        </div>
       </div>
 
-      <div class="hero-ctas fade-up delay-5">
-        <a href="for-agents.html" class="btn">For agents</a>
-        <a href="projects.html" class="btn btn-warm">View projects</a>
+      <!-- Text column -->
+      <div class="hero-text">
+        <p class="hero-eyebrow fade-up delay-2">Adult fantasy &amp; science fiction</p>
+        <h1 class="hero-name fade-up delay-3">Radu Paun</h1>
+        <p class="hero-subtitle fade-up delay-4">
+          Writing worlds at the edge of the known — where myth meets the strange logic of the universe.
+        </p>
+        <div class="hero-divider fade-up delay-4">
+          <span></span>
+          <em>&#10022;</em>
+          <span></span>
+        </div>
+        <div class="hero-ctas fade-up delay-5">
+          <a href="for-agents.html" class="btn">For agents</a>
+          <a href="projects.html" class="btn btn-warm">View projects</a>
+        </div>
       </div>
     </section>
 
@@ -309,10 +379,9 @@
 </div>
 
 <script>
-  // Starfield
   const canvas = document.getElementById('stars-canvas');
   const ctx = canvas.getContext('2d');
-  let stars = [];
+  let stars = [], raf;
 
   function resize() {
     canvas.width  = window.innerWidth;
@@ -321,14 +390,15 @@
 
   function initStars() {
     stars = [];
-    const count = Math.floor((canvas.width * canvas.height) / 4000);
+    const count = Math.floor((canvas.width * canvas.height) / 2200);
     for (let i = 0; i < count; i++) {
+      const size = Math.random();
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        r: Math.random() * 1.1 + 0.1,
-        o: Math.random() * 0.6 + 0.1,
-        speed: Math.random() * 0.003 + 0.001,
+        r: size < 0.7 ? Math.random() * 0.8 + 0.2 : Math.random() * 1.6 + 0.8,
+        o: size < 0.7 ? Math.random() * 0.5 + 0.2 : Math.random() * 0.7 + 0.3,
+        speed: Math.random() * 0.002 + 0.0005,
         phase: Math.random() * Math.PI * 2
       });
     }
@@ -337,19 +407,17 @@
   function drawStars(t) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     stars.forEach(s => {
-      const o = s.o * (0.6 + 0.4 * Math.sin(t * s.speed + s.phase));
+      const o = s.o * (0.7 + 0.3 * Math.sin(t * s.speed + s.phase));
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(200, 210, 230, ${o})`;
+      ctx.fillStyle = 'rgba(220, 228, 245, ' + o + ')';
       ctx.fill();
     });
-    requestAnimationFrame(drawStars);
+    raf = requestAnimationFrame(drawStars);
   }
 
-  resize();
-  initStars();
-  requestAnimationFrame(drawStars);
-  window.addEventListener('resize', () => { resize(); initStars(); });
+  resize(); initStars(); requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { cancelAnimationFrame(raf); resize(); initStars(); requestAnimationFrame(drawStars); });
 </script>
 </body>
 </html>
