@@ -3,14 +3,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --void:       #12141c;
-  --deep:       #181a24;
+  --void:       #161820;
+  --deep:       #1c1e2a;
   --surface:    #1e2030;
   --rim:        #24263300;
   --mist:       #c8cad8;
   --silver:     #e8eaf2;
-  --dim:        #6b6e80;
-  --accent:     #7c9eb8;
+  --dim:        #8a8da8;
+  --accent:     #90b4cc;
   --accent2:    #a87c5a;
   --glow:       rgba(124,158,184,0.15);
   --ff-display: 'Cinzel', serif;
@@ -35,7 +35,7 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 /* ── NAV ── */
@@ -157,7 +157,6 @@ main { flex: 1; padding-top: 5rem; position: relative; z-index: 10; }
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
-  opacity: 0.7;
   display: block;
 }
 
