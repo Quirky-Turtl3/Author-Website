@@ -233,22 +233,31 @@
     /* ── MOBILE ── */
     @media (max-width: 768px) {
       .hero {
-        padding: 4rem 1.25rem 2rem;
-        gap: 1.75rem;
+        padding: 3rem 1.25rem 2rem;
+        gap: 0;
       }
       .hero-photo {
         aspect-ratio: 1 / 1;
         max-height: 320px;
         border-radius: 1px;
+        margin-bottom: 1.5rem;
       }
       .hero-photo img {
         object-position: center 8%;
       }
+      .hero-eyebrow {
+        margin-bottom: 0.75rem;
+      }
       .hero-name {
-        font-size: clamp(2.2rem, 10vw, 3rem);
+        font-size: clamp(2rem, 9vw, 2.8rem);
+        letter-spacing: 0.06em;
+        line-height: 1.1;
+        margin-bottom: 0;
       }
       .hero-subtitle {
         margin-top: 1rem;
+        font-size: 1rem;
+        line-height: 1.6;
       }
       .hero-divider {
         margin: 1.25rem 0;
@@ -262,6 +271,8 @@
         width: 100%;
         text-align: center;
         box-sizing: border-box;
+        padding: 0.9rem 1rem;
+        letter-spacing: 0.15em;
       }
 
       /* Info strip stacks */
