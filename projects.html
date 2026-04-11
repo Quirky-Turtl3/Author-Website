@@ -125,8 +125,9 @@
     .genre-tag.fantasy { color: #a87c9a; border-color: rgba(168,124,154,0.3); }
     .genre-tag.scifi   { color: var(--accent); border-color: rgba(124,158,184,0.3); }
 
-    /* mobile meta row — hidden on desktop */
+    /* mobile-only elements — hidden on desktop */
     .project-codename-meta { display: none; }
+    .mobile-status-row { display: none; }
 
     /* ── LEGEND ── */
     .legend {
@@ -215,9 +216,13 @@
         margin-top: 0.3rem;
       }
 
-      /* Hide the standalone genre and series table cells on mobile */
+      /* Hide the standalone genre, series, writing, wordcount, querying cells —
+         all replaced by the mobile-status-row */
       .projects-table td:nth-child(2),
-      .projects-table td:nth-child(3) {
+      .projects-table td:nth-child(3),
+      .projects-table td:nth-child(5),
+      .projects-table td:nth-child(6),
+      .projects-table td:nth-child(7) {
         display: none;
       }
 
@@ -225,40 +230,42 @@
       .project-logline {
         font-size: 0.88rem;
         max-width: 100%;
-        margin: 0.25rem 0 0.75rem;
+        margin: 0.25rem 0 0;
       }
 
-      /* ── Status row: Writing + Word count + Querying all inline ── */
-      .projects-table td:nth-child(5),
-      .projects-table td:nth-child(6),
-      .projects-table td:nth-child(7) {
-        display: inline-block;
-        width: auto;
-        padding: 0 0.5rem 0 0;
-        margin: 0;
-        vertical-align: middle;
+      /* ── Mobile status row ── */
+      .mobile-status-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 0.85rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(124,158,184,0.06);
       }
 
-      /* Word count text styling */
-      .projects-table td:nth-child(6) .project-comment {
-        font-size: 0.78rem;
+      .mobile-status-item {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
       }
 
-      /* Hide word count cell when marked as N/A */
-      .projects-table td:nth-child(6)[data-hide="true"] {
-        display: none;
+      .mobile-label {
+        font-family: var(--ff-ui);
+        font-size: 0.52rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--dim);
       }
 
       /* Notes */
       .projects-table td:nth-child(8) {
         display: block;
-        margin-top: 0.6rem;
-        padding-top: 0.5rem;
-        border-top: 1px solid rgba(124,158,184,0.06);
+        margin-top: 0.5rem;
       }
       .projects-table td:nth-child(8) .project-comment {
         font-size: 0.78rem;
-        opacity: 0.7;
+        opacity: 0.6;
         max-width: 100%;
       }
 
@@ -315,9 +322,21 @@
               </td>
               <td><span class="genre-tag fantasy">Fantasy</span></td>
               <td><span class="project-series">Standalone</span></td>
-              <td><p class="project-logline">With hunters on their heels, two rival "Chosen Ones" and the peacemaking friend caught between them must survive a treacherous pilgrimage to discover what it truly takes to be chosen.</p></td>
+              <td>
+                <p class="project-logline">With hunters on their heels, two rival "Chosen Ones" and the peacemaking friend caught between them must survive a treacherous pilgrimage to discover what it truly takes to be chosen.</p>
+                <div class="mobile-status-row">
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Status</span>
+                    <span class="badge badge-drafting">Drafting</span>
+                  </div>
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Querying</span>
+                    <span class="badge badge-upcoming">Not yet</span>
+                  </div>
+                </div>
+              </td>
               <td><span class="badge badge-drafting">Drafting</span></td>
-              <td data-hide="true"><p class="project-comment">N/A</p></td>
+              <td><p class="project-comment">N/A</p></td>
               <td><span class="badge badge-upcoming">Not yet</span></td>
               <td><p class="project-comment">Current WIP</p></td>
             </tr>
@@ -332,7 +351,23 @@
               </td>
               <td><span class="genre-tag scifi">Sci-Fi</span></td>
               <td><span class="project-series">Short Story</span></td>
-              <td><p class="project-logline">An immortal pharaoh and a time traveler play a decades-long chess game culminating in a violent, principle-shattering gambit to save humanity.</p></td>
+              <td>
+                <p class="project-logline">An immortal pharaoh and a time traveler play a decades-long chess game culminating in a violent, principle-shattering gambit to save humanity.</p>
+                <div class="mobile-status-row">
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Status</span>
+                    <span class="badge badge-complete">Complete</span>
+                  </div>
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Words</span>
+                    <span style="font-family:var(--ff-body);font-style:italic;font-size:0.78rem;color:var(--mist);">~4,500</span>
+                  </div>
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Querying</span>
+                    <span class="badge badge-na">N/A</span>
+                  </div>
+                </div>
+              </td>
               <td><span class="badge badge-complete">Complete</span></td>
               <td><p class="project-comment">~4,500 words</p></td>
               <td><span class="badge badge-na">N/A</span></td>
@@ -349,7 +384,23 @@
               </td>
               <td><span class="genre-tag fantasy">Fantasy</span></td>
               <td><span class="project-series">Standalone</span></td>
-              <td><p class="project-logline">A candlemaker joins a rebellion against an immortal tyrant to make sure their chaotic uprising doesn't disrupt her own, meticulous sabotage.</p></td>
+              <td>
+                <p class="project-logline">A candlemaker joins a rebellion against an immortal tyrant to make sure their chaotic uprising doesn't disrupt her own, meticulous sabotage.</p>
+                <div class="mobile-status-row">
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Status</span>
+                    <span class="badge badge-complete">Complete</span>
+                  </div>
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Words</span>
+                    <span style="font-family:var(--ff-body);font-style:italic;font-size:0.78rem;color:var(--mist);">~119,000</span>
+                  </div>
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Querying</span>
+                    <span class="badge badge-querying">Querying</span>
+                  </div>
+                </div>
+              </td>
               <td><span class="badge badge-complete">Complete</span></td>
               <td><p class="project-comment">~119,000 words</p></td>
               <td><span class="badge badge-querying">Querying</span></td>
@@ -366,7 +417,23 @@
               </td>
               <td><span class="genre-tag fantasy">Fantasy</span></td>
               <td><span class="project-series">Short Story</span></td>
-              <td><p class="project-logline">To win his freedom from a magical guild, a cynical problem-solver must survive the frozen North and keep his glory-obsessed client alive through a deadly, monster-filled pre-wedding trial.</p></td>
+              <td>
+                <p class="project-logline">To win his freedom from a magical guild, a cynical problem-solver must survive the frozen North and keep his glory-obsessed client alive through a deadly, monster-filled pre-wedding trial.</p>
+                <div class="mobile-status-row">
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Status</span>
+                    <span class="badge badge-complete">Complete</span>
+                  </div>
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Words</span>
+                    <span style="font-family:var(--ff-body);font-style:italic;font-size:0.78rem;color:var(--mist);">~7,500</span>
+                  </div>
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Querying</span>
+                    <span class="badge badge-na">N/A</span>
+                  </div>
+                </div>
+              </td>
               <td><span class="badge badge-complete">Complete</span></td>
               <td><p class="project-comment">~7,500 words</p></td>
               <td><span class="badge badge-na">N/A</span></td>
@@ -383,7 +450,23 @@
               </td>
               <td><span class="genre-tag fantasy">Fantasy</span></td>
               <td><span class="project-series">First in a Series</span></td>
-              <td><p class="project-logline">Driven by vengeance and duty, a short-tempered wallguard and a reluctant stonemason-turned-mercenary are drawn into a devastating sell-sword war when a stolen ancient weapon and a rising crime lord threaten the city of Dacra.</p></td>
+              <td>
+                <p class="project-logline">Driven by vengeance and duty, a short-tempered wallguard and a reluctant stonemason-turned-mercenary are drawn into a devastating sell-sword war when a stolen ancient weapon and a rising crime lord threaten the city of Dacra.</p>
+                <div class="mobile-status-row">
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Status</span>
+                    <span class="badge badge-complete">Complete</span>
+                  </div>
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Words</span>
+                    <span style="font-family:var(--ff-body);font-style:italic;font-size:0.78rem;color:var(--mist);">~167,000</span>
+                  </div>
+                  <div class="mobile-status-item">
+                    <span class="mobile-label">Querying</span>
+                    <span class="badge badge-onhold">On hold</span>
+                  </div>
+                </div>
+              </td>
               <td><span class="badge badge-complete">Complete</span></td>
               <td><p class="project-comment">~167,000 words</p></td>
               <td><span class="badge badge-onhold">On hold</span></td>
