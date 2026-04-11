@@ -7,7 +7,7 @@
   <meta name="description" content="Radu Paun's writing projects — progress and querying status.">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .projects-wrap {
+     .projects-wrap {
       max-width: 72rem;
       margin: 0 auto;
       padding: 2rem 3rem 2rem;
@@ -160,10 +160,99 @@
       line-height: 1.7;
     }
 
+    /* ── MOBILE CARD LAYOUT ── */
     @media (max-width: 768px) {
-      .projects-wrap { padding: 3rem 1.5rem 4rem; }
-      .projects-table th,
-      .projects-table td { padding-right: 1rem; }
+      .projects-wrap { padding: 1.5rem 1.25rem 3rem; }
+
+      .table-scroll { overflow-x: visible; }
+
+      .projects-table thead { display: none; }
+
+      .projects-table,
+      .projects-table tbody,
+      .projects-table tr,
+      .projects-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .projects-table tbody tr {
+        border: 1px solid rgba(124,158,184,0.1);
+        border-radius: 2px;
+        padding: 1.25rem 1rem;
+        margin-bottom: 1rem;
+        background: rgba(124,158,184,0.02);
+      }
+      .projects-table tbody tr:hover {
+        background: rgba(124,158,184,0.05);
+      }
+
+      .projects-table td {
+        padding: 0.25rem 0;
+        border-bottom: none;
+      }
+
+      /* Row 1: codename + genre tag side by side */
+      .projects-table td:nth-child(1) {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.4rem;
+      }
+
+      /* Hide the standalone genre and series cells — shown inline below */
+      .projects-table td:nth-child(2),
+      .projects-table td:nth-child(3) {
+        display: none;
+      }
+
+      /* Inject genre + series as data attrs so we can show them via codename cell */
+      .project-codename-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+
+      .project-logline {
+        font-size: 0.88rem;
+        max-width: 100%;
+        margin-bottom: 0.75rem;
+      }
+
+      /* Status row: writing + querying badges inline */
+      .mobile-status-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+
+      .mobile-label {
+        font-family: var(--ff-ui);
+        font-size: 0.55rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+
+      /* Word count cell */
+      .projects-table td:nth-child(6) .project-comment {
+        font-size: 0.78rem;
+      }
+
+      /* Notes cell — slightly dimmer */
+      .projects-table td:nth-child(8) {
+        margin-top: 0.3rem;
+      }
+      .projects-table td:nth-child(8) .project-comment {
+        font-size: 0.78rem;
+        opacity: 0.7;
+      }
+
+      /* Hide word count label on mobile if empty */
+      .projects-table td:nth-child(6) p:empty { display: none; }
     }
   </style>
 </head>
@@ -209,6 +298,9 @@
             <tr>
               <td>
                 <div class="project-codename">Project Prophecy</div>
+                <div class="project-codename-meta">
+                  <span class="genre-tag fantasy">Fantasy</span>
+                  <span class="project-series">Standalone</span>
               </td>
               <td><span class="genre-tag fantasy">Fantasy</span></td>
               <td><span class="project-series">Standalone</span></td>
@@ -223,6 +315,9 @@
             <tr>
               <td>
                 <div class="project-codename">Project Traveller</div>
+                <div class="project-codename-meta">
+                  <span class="genre-tag scifi">Sci-Fi</span>
+                  <span class="project-series">Short Story</span>
               </td>
               <td><span class="genre-tag scifi">Sci-Fi</span></td>
               <td><span class="project-series">Short Story</span></td>
@@ -237,6 +332,9 @@
             <tr>
               <td>
                 <div class="project-codename">Project Time</div>
+                <div class="project-codename-meta">
+                  <span class="genre-tag fantasy">Fantasy</span>
+                  <span class="project-series">Standalone</span>
               </td>
               <td><span class="genre-tag fantasy">Fantasy</span></td>
               <td><span class="project-series">Standalone</span></td>
@@ -250,6 +348,9 @@
             <tr>
               <td>
                 <div class="project-codename">Project Solver</div>
+                <div class="project-codename-meta">
+                  <span class="genre-tag fantasy">Fantasy</span>
+                  <span class="project-series">Short Story</span>
               </td>
               <td><span class="genre-tag fantasy">Fantasy</span></td>
               <td><span class="project-series">Short Story</span></td>
@@ -263,6 +364,9 @@
             <tr>
               <td>
                 <div class="project-codename">Project Iron</div>
+                <div class="project-codename-meta">
+                  <span class="genre-tag fantasy">Fantasy</span>
+                  <span class="project-series">First in a Series</span>
               </td>
               <td><span class="genre-tag fantasy">Fantasy</span></td>
               <td><span class="project-series">First in a Series</span></td>
