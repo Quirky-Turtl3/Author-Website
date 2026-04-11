@@ -128,6 +128,7 @@
     /* mobile-only elements — hidden on desktop */
     .project-codename-meta { display: none; }
     .mobile-status-row { display: none; }
+    .notes-label { display: none; }
 
     /* ── LEGEND ── */
     .legend {
@@ -260,13 +261,25 @@
 
       /* Notes */
       .projects-table td:nth-child(8) {
-        display: block;
+        display: flex;
+        align-items: baseline;
+        gap: 0.4rem;
         margin-top: 0.5rem;
       }
       .projects-table td:nth-child(8) .project-comment {
         font-size: 0.78rem;
         opacity: 0.6;
         max-width: 100%;
+      }
+      .notes-label {
+        font-family: var(--ff-ui);
+        font-size: 0.52rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--dim);
+        white-space: nowrap;
+        flex-shrink: 0;
+        display: inline;
       }
 
       .legend { gap: 0.75rem 1.25rem; }
@@ -338,7 +351,7 @@
               <td><span class="badge badge-drafting">Drafting</span></td>
               <td><p class="project-comment">N/A</p></td>
               <td><span class="badge badge-upcoming">Not yet</span></td>
-              <td><p class="project-comment">Current WIP</p></td>
+              <td><span class="notes-label">Notes</span><p class="project-comment">Current WIP</p></td>
             </tr>
 
             <tr>
@@ -371,7 +384,7 @@
               <td><span class="badge badge-complete">Complete</span></td>
               <td><p class="project-comment">~4,500 words</p></td>
               <td><span class="badge badge-na">N/A</span></td>
-              <td><p class="project-comment">Short story, not for querying</p></td>
+              <td><span class="notes-label">Notes</span><p class="project-comment">Short story, not for querying</p></td>
             </tr>
 
             <tr>
@@ -404,7 +417,7 @@
               <td><span class="badge badge-complete">Complete</span></td>
               <td><p class="project-comment">~119,000 words</p></td>
               <td><span class="badge badge-querying">Querying</span></td>
-              <td><p class="project-comment">Actively querying</p></td>
+              <td><span class="notes-label">Notes</span><p class="project-comment">Actively querying</p></td>
             </tr>
 
             <tr>
@@ -437,7 +450,7 @@
               <td><span class="badge badge-complete">Complete</span></td>
               <td><p class="project-comment">~7,500 words</p></td>
               <td><span class="badge badge-na">N/A</span></td>
-              <td><p class="project-comment">Short story, not for querying</p></td>
+              <td><span class="notes-label">Notes</span><p class="project-comment">Short story, not for querying</p></td>
             </tr>
 
             <tr>
@@ -470,7 +483,7 @@
               <td><span class="badge badge-complete">Complete</span></td>
               <td><p class="project-comment">~167,000 words</p></td>
               <td><span class="badge badge-onhold">On hold</span></td>
-              <td><p class="project-comment">A bit too long. Planning to publish something else first</p></td>
+              <td><span class="notes-label">Notes</span><p class="project-comment">A bit too long. Planning to publish something else first</p></td>
             </tr>
 
           </tbody>
