@@ -318,8 +318,8 @@
   const ctx = canvas.getContext('2d');
   let stars = [];
   function resize() {
-    canvas.width  = Math.max(document.documentElement.scrollWidth, window.innerWidth);
-    canvas.height = Math.max(document.documentElement.scrollHeight, window.innerHeight);
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
   function initStars() {
     stars = [];
